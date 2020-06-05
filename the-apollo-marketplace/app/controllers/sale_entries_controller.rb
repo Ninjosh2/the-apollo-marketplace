@@ -1,5 +1,12 @@
 class SaleEntriesController < ApplicationController
 
+    get '/sales' do
+        @sale_entries = SaleEntry.all
+        erb :'/sale_entries/index'
+    end
+
+
+
     get '/sale_entries/new' do
         erb :'/sale_entries/new'
     end
@@ -28,7 +35,7 @@ class SaleEntriesController < ApplicationController
     get '/sale_entries/:id/edit' do
         set_sale_entry
         if logged_in?
-            if @sale_entry.user == current_user
+            if allowed_to_edit?(@sale_entry)
                 erb :'/sale_entries/edit'
             else
                 redirect "users/#{current_user.id}"
@@ -52,9 +59,9 @@ class SaleEntriesController < ApplicationController
         end
       end
 
-      private
-      def set_sale_entry
+    private
+        def set_sale_entry
         @sale_entry = SaleEntry.find(params[:id])
-      end
+    end
 
 end

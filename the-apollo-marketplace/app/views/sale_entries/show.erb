@@ -4,12 +4,12 @@ Instrument: : <%= @sale_entry.item %><br><br>
 Description : <%= @sale_entry.description %><br><br>
 Price : <%= @sale_entry.price %><br><br>
 
+<% if allowed_to_edit?(@sale_entry) %>
+    <a href="/sale_entries/<%= @sale_entry.id %>/edit">Edit my post</a>
 
-<a href="/sale_entries/<%= @sale_entry.id %>/edit">Edit my post</a>
+    <a href="">Delete my post</a>
 
-
-Delete Link
-<a href="">
+<% end %>
 
 
 
