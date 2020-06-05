@@ -32,7 +32,5 @@ class ApplicationController < Sinatra::Base
     def allowed_to_edit?(sale_entry)
       sale_entry.user == current_user
     end
-
   end
-
 end

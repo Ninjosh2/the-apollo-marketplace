@@ -6,8 +6,11 @@ Price : <%= @sale_entry.price %><br><br>
 
 <% if allowed_to_edit?(@sale_entry) %>
     <a href="/sale_entries/<%= @sale_entry.id %>/edit">Edit my post</a>
-
-    <a href="">Delete my post</a>
+    <br><br>
+    <form class="" action="/sale_entries/<%= @sale_entry.id %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete Post..">
+    </form>
 
 <% end %>
 

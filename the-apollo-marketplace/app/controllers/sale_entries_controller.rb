@@ -12,12 +12,10 @@ class SaleEntriesController < ApplicationController
     #that will redirect the user to their post. If it's not the logged user,
     #the it will redirect the user back to the 'new' page.
     post '/sale_entries' do
-
         if !logged_in?
             redirect '/'
         end
-
-        if params[:item] != "" 
+        if params[:item] && params[:description] && params[:price] != ""    
             @sale_entry = SaleEntry.create(item: params[:item], description: params[:description], price: params[:price], user_id: current_user.id)
             redirect "/sale_entries/#{@sale_entry.id}"
         else
@@ -52,7 +50,7 @@ class SaleEntriesController < ApplicationController
       patch '/sale_entries/:id' do
         set_sale_entry
         if logged_in?
-            if allowed_to_edit?(@sale_entry)
+            if @sale_entry.user == current_user && params[:item]; params[:description]; params[:price] != ""
                 @sale_entry.update(item: params[:item], description: params[:description], price: params[:price])
                 redirect "/sale_entries/#{@sale_entry.id}"
             else
@@ -62,6 +60,16 @@ class SaleEntriesController < ApplicationController
             redirect '/'
         end
       end
+
+    delete '/sale_entries/:id' do
+        set_sale_entry
+        if allowed_to_edit?(@sale_entry)
+            @sale_entry.destroy
+            redirect '/sales'
+        else
+            redirect '/sales'
+        end
+    end
 
     private
         def set_sale_entry
