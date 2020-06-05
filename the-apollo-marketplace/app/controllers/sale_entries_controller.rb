@@ -1,16 +1,16 @@
 class SaleEntriesController < ApplicationController
-
+    #shows all of the sales post that are made for every user.
     get '/sales' do
         @sale_entries = SaleEntry.all
         erb :'/sale_entries/index'
     end
-
-
-
+    #the route that shows the 'new' page.
     get '/sale_entries/new' do
         erb :'/sale_entries/new'
     end
-
+    #verifies that a user is logged in. Also another if/else block
+    #that will redirect the user to their post. If it's not the logged user,
+    #the it will redirect the user back to the 'new' page.
     post '/sale_entries' do
 
         if !logged_in?
@@ -24,14 +24,14 @@ class SaleEntriesController < ApplicationController
             redirect '/sale_entries/new'
         end
     end
-
-        #show route for sale entry
+    #show route for sale entry for that user.
     get '/sale_entries/:id' do
         set_sale_entry
         erb :'/sale_entries/show'
     end
-
     #this will send us to the sale_entries/edit erb, and have #an edit form
+    #if it's not the signed in user, but user is signed in, then redirect back #to that user's edit page. 
+    #if no user is signed in, the redirect back to '/' 
     get '/sale_entries/:id/edit' do
         set_sale_entry
         if logged_in?
@@ -44,11 +44,15 @@ class SaleEntriesController < ApplicationController
             redirect '/'
         end 
     end
-
+    #anything that is updated through the edit page, will be sent throught the
+    #block here. Once verified, fire the user back to the user's page with 
+    #updated informaton.
+    #same as before if it's not the signed in user, but user is signed in, then #redirect back #to that user's edit page. 
+    #if no user is signed in, the redirect back to '/' 
       patch '/sale_entries/:id' do
         set_sale_entry
         if logged_in?
-            if @sale_entry.user == current_user
+            if allowed_to_edit?(@sale_entry)
                 @sale_entry.update(item: params[:item], description: params[:description], price: params[:price])
                 redirect "/sale_entries/#{@sale_entry.id}"
             else
@@ -63,5 +67,4 @@ class SaleEntriesController < ApplicationController
         def set_sale_entry
         @sale_entry = SaleEntry.find(params[:id])
     end
-
 end
