@@ -2,15 +2,21 @@
 <html>
     <body>
         <h1 style="font-family:verdana;">Log in to start selling!</h1><br>   
+
         <form action='/users' method='POST' id='nameform'>
-            <input type='text' style='font-size:14pt' placeholder='Name' name='name' value=''>
-            <br><br>
-            <input type='text' style='font-size:14pt' placeholder='Email' name='email' value=''>
-            <br><br>
-            <input type='password' style='font-size:14pt' placeholder='Password' name='password' value=''>
-            <br><br>
+            <label for="name">Name : </label>
+            <input type="text" style='font-size:14pt' name="name"><br><br>
+            <label for="email">Email : </label>
+            <input type="text" style='font-size:14pt' name="email"><br><br>
+            <label for="password">Password : </label>
+            <input type="password" style='font-size:14pt' name="password"><br><br>
             <input type="reset" value="Reset">
             <input type="submit" value="Log In!">
         </form>
+
+            <br><br>
+            Do you not have an account? <a href='/signup'>Sign up</a>
+            <br><br>
+            <a href="/">Back</a>
     </body>
 </html>
