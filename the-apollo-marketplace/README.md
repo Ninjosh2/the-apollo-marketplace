@@ -26,11 +26,12 @@ Ruby 2.5.5 Sinatra and Active Record - Ruby frameworks used SQLITE3 - Relational
 Authors
 
 Framework - Sinatra gem
+
 Joshua Sanders 
 
 License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - https://choosealicense.com/licenses/mit/
 
 Acknowledgments
 
