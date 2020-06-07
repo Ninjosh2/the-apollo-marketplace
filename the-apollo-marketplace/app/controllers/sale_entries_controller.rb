@@ -15,10 +15,12 @@ class SaleEntriesController < ApplicationController
         if !logged_in?
             redirect '/'
         end
-        if params[:item] && params[:description] && params[:price] != ""    
+        if params[:item] && params[:description] && params[:price] != ""
+            flash[:message] = "Post Created!"  
             @sale_entry = SaleEntry.create(item: params[:item], description: params[:description], price: params[:price], user_id: current_user.id)
             redirect "/sale_entries/#{@sale_entry.id}"
         else
+            flash[:error] = "Oops!"
             redirect '/sale_entries/new'
         end
     end

@@ -8,13 +8,13 @@ class UsersController < ApplicationController
     post '/login' do
         @user = User.find_by(email: params[:email])
 
-        if @user && @user.authenticate(params[:password])
+        if  @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            flash[:message] = "Hello, #{@user.name}!"
+            flash[:message] = "Welcome, #{@user.name}!"
             redirect "users/#{@user.id}"
         else
             #binding.pry
-            flash[:message] = "Invalid input. Please try again."
+            flash[:error] = "Invalid input. Please try again."
             redirect '/login'
         end
     end
@@ -24,11 +24,13 @@ class UsersController < ApplicationController
     end
 
     post '/users' do
-        if params[:name] != "" && params[:email] != "" && params[:pasword] != ""
-            @user = User.create(params)
-            session[:user_id] = @user.id
+        @user = User.new(params)
+        if @user.save
+            flash[:message] = "Account created! Welcome, #{user.name}!"
             redirect "/users/#{@user.id}"
         else
+            flash[:error] = "Invalid account creation: #{@user.errors.full_messages.to_sentence}"
+            redirect '/signup'
         end
     end
 
