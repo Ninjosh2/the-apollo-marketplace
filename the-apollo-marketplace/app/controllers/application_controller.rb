@@ -36,5 +36,12 @@ class ApplicationController < Sinatra::Base
     def allowed_to_edit?(sale_entry)
       sale_entry.user == current_user
     end
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        flash[:error] = "You must be logged in to view this."
+        redirect '/'
+      end
+    end
   end
 end

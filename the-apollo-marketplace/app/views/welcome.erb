@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<div class="container">
-  <header><img src="images/the_amp.png" alt="the_amp" width="960" height="400"></header>
-  <div class="col-md-8 col-md-offset-2">
-    <div class="content">
-
-      <br>
-      <p>Welcome to the Apollo Market Place!!</p><br>
-      <p>Click <a href="/login">here</a> to login!</p><br>
-      <p>Don't have an account? Sign Up <a href="/signup">Here</a></p>
-      
+  <body>
+    <div class="container">
+      <header><img src="images/the_amp.png" alt="the_amp" style="width:960px;height:400px;"></header>
+        <div class="col-md-8 col-md-offset-2">
+          <div class="content">
+            <br>
+            <p>Welcome to the Apollo Market Place!!</p><br>
+            <p>Click <a href="/login">here</a> to login!</p><br>
+            <p>Don't have an account? Sign Up <a href="/signup">Here</a></p>
+          </div>
+        </div>
+          <br>
+        <div class="sidebar">
+          <h4>Environment</h4>
+          <ul><br>
+            <li><b>Ruby:</b> <%= RUBY_VERSION %></li><br>
+            <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li><br>
+            <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
+            <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
+          </ul>
+        </div>
     </div>
-
-    <br>
-
-    <div class="sidebar">
-      <h4>Environment</h4>
-      <ul><br>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li><br>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li><br>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-</body>
+  </body>
 </html>
