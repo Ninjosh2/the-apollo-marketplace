@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<h1 style="font-family:verdana;">Editing my Post..</h1>
-
-<p></p>
-
-<form action="/sale_entries/<%= @sale_entry.id %>" method='post'>
-    <input type="hidden" name="_method" value="patch">
-    <label for="item">Item:</label>
-    <textarea name="item" style="width:auto; height:auto;"><%= @sale_entry.item %></textarea>
-
-    <label for="description">Description:</label>
-    <textarea name="description" style="width:auto; height:auto;"><%= @sale_entry.description %></textarea>
-
-    <label for="price">Price:</label>
-    <textarea name="price" style="width:auto; height:auto;"><%= @sale_entry.price %></textarea>
-
-    <input type="reset">
-    <input type="submit" name="Edit.." value="Submit..">
-</form>
-
-</body>
+    <body>
+        <h1 style="font-family:verdana;">Editing my Post..</h1>
+        <p></p>
+        <form action="/sale_entries/<%= @sale_entry.id %>" method='post'>
+            <input type="hidden" name="_method" value="patch">
+            <label for="item">Item:</label>
+            <textarea name="item" style="width:auto; height:auto;"><%= @sale_entry.item %></textarea>&emsp;&emsp;
+            <label for="description">Description:</label>
+            <textarea name="description" style="width:auto; height:auto;"><%= @sale_entry.description %></textarea>&emsp;&emsp;
+            <label for="price">Price:</label>
+            <textarea name="price" style="width:auto; height:auto;"><%= @sale_entry.price %></textarea>&emsp;&emsp;
+            <input type="reset">&emsp;
+            <input type="submit" name="Edit.." value="Submit..">
+        </form>
+    </body>
 </html>
