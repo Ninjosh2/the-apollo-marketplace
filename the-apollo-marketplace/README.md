@@ -29,6 +29,8 @@ Framework - Sinatra gem
 
 Joshua Sanders 
 
+Click here to watch my video about the project : https://www.youtube.com/watch?v=4A9bQL0-iso&feature=youtu.be
+
 License
 
 This project is licensed under the MIT License - check the LICENSE.txt file
