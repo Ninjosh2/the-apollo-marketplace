@@ -1,4 +1,4 @@
-#Adding in some user and sale entries 
+
 
 ren = User.create(name: "Ren", email: "renthepup@gmail.com", password: "puppy")
 

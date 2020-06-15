@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-    #the login route I want is here
+
     get '/login' do
         erb :login
     end
-    #creates a session for the user that's logged in.
+
     post '/login' do
         @user = User.find_by(email: params[:email])
         if  @user && @user.authenticate(params[:password])
@@ -11,12 +11,12 @@ class UsersController < ApplicationController
             flash[:message] = "Welcome, #{@user.name}!"
             redirect "users/#{@user.id}"
         else
-            #binding.pry
+
             flash[:error] = "Invalid input. Please try again."
             redirect '/login'
         end
     end
-    #the signup route is here!
+
     get '/signup' do
         erb :signup
     end
