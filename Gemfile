@@ -13,6 +13,10 @@ gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash'
 
+group :development do
+gem 'dotenv'
+end
+
 group :test do
   gem 'rspec'
   gem 'capybara'
