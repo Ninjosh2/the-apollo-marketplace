@@ -1,13 +1,12 @@
 The Apollo Market Place
 
-Welcome to The Apollo Market Place or The AMP for short. Here You can look and post for any kind of music equipment you're willing to sell. You are able to create post, read your post (as well as others), update your post, and delete them as well. 
+Welcome to The Apollo Market Place or The A.M.P. for short. Here You can look and post for any kind of music equipment you're willing to sell. You are able to create post, read your post (as well as others), update your post, and delete them as well. 
 
 Getting Started
 
 ~ Clone or download to your local machine.
 
     ** git@github.com:Ninjosh2/the-apollo-marketplace.git **
-    ** cd the-apollo-marketplace **
                  then 
     ** cd the-apollo-marketplace **
     ** code . (or) atom . **

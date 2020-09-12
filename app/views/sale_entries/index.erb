@@ -2,10 +2,10 @@
 <br>
 <% @sale_entries.each do |sale_entry| %>
     <br>
-    <h4 style="color:Crimson;"><a href="/sale_entries/<%= sale_entry.id %>">Posted on : <%= sale_entry.change_created_at %></a></h4><br>
-    <p><%= sale_entry.user.name %></p>
-    <p><%= sale_entry.item %></p>
-    <p><%= sale_entry.description %></p>
-    <p>$<%= sale_entry.price %></p>
+    <h4 style="color:Crimson;"><a href="/sale_entries/<%= sale_entry.id %>">Posted on : <%= sale_entry.change_created_at %> by <%= sale_entry.user.name %></a></h4><br>
+    <p></p>
+    <p>Item: <%= sale_entry.item %></p>
+    <p>Description: <%= sale_entry.description %></p>
+    <p>Price: $<%= sale_entry.price %></p>
     <br>
 <% end %>

@@ -33,6 +33,11 @@ class UsersController < ApplicationController
         end
     end
 
+    get '/home' do
+        redirect_if_not_logged_in
+        redirect to "/users/#{current_user.id}"
+    end
+
     get '/users/:id' do
         @user = User.find_by(id: params[:id])
         redirect_if_not_logged_in
