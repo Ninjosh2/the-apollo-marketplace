@@ -27,7 +27,7 @@ class SaleEntriesController < ApplicationController
             erb :'/sale_entries/show'
         else
             flash[:error] = "Oops! This doesn't exist."
-            redirect '/sale_entries'
+            redirect to '/sale_entries'
         end
         
         

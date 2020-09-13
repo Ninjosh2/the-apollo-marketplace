@@ -39,9 +39,12 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        @user = User.find_by(id: params[:id])
-        redirect_if_not_logged_in
-        erb :'/users/show'
+        if @user = User.find_by(id: params[:id])
+            erb :'/users/show'
+        else
+            flash[:error] = "Oops! This doesn't exist."
+            redirect to "/users/#{current_user.id}"
+        end
     end
 
     get '/logout' do
