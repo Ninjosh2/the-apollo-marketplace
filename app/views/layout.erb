@@ -20,10 +20,10 @@
         <br><br>
       </div>
       <% if flash[:message] %>
-        <h2 style="color: green;"><%= flash[:message] %></h2>
+        <h1 style="color: green;"><%= flash[:message] %></h1>
       <% end %>
       <% if flash[:error] %>
-        <h2 style="color: red;"><%= flash[:error] %></h2>
+        <h1 style="color: red;"><%= flash[:error] %></h1>
       <% end %>
       <%= yield %>
       <footer class="branding">
