@@ -28,7 +28,7 @@ Framework - Sinatra gem
 
 Joshua Sanders 
 
-Click here to watch my video about the project : https://www.youtube.com/watch?v=4A9bQL0-iso&feature=youtu.be
+Click here to watch my video about the project : https://youtu.be/a6FNWDNpl-o
 
 License
 
