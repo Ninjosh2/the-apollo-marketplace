@@ -40,7 +40,7 @@ class SaleEntriesController < ApplicationController
             erb :'/sale_entries/edit'
         else
             redirect "users/#{current_user.id}"
-        end  
+        end
     end
 
     patch '/sale_entries/:id' do
