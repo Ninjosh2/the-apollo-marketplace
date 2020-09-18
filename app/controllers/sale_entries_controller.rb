@@ -35,6 +35,12 @@ class SaleEntriesController < ApplicationController
 
     get '/sale_entries/:id/edit' do
         set_sale_entry
+        if @sale_entry
+            erb :'/sale_entries/show'
+        else
+            flash[:error] = "Oops! This doesn't exist."
+            redirect to "/users/#{current_user.id}"
+        end
         redirect_if_not_logged_in
         if allowed_to_edit?(@sale_entry)
             erb :'/sale_entries/edit'
