@@ -32,7 +32,11 @@ class ApplicationController < Sinatra::Base
     end
 
     def allowed_to_edit?(sale_entry)
-      sale_entry.user == current_user
+       if sale_entry != nil
+        sale_entry.user == current_user
+       else
+        redirect "users/#{current_user.id}"
+       end
     end
 
     def redirect_if_not_logged_in

@@ -13,7 +13,7 @@ class SaleEntriesController < ApplicationController
         redirect_if_not_logged_in
         if params[:item] && params[:description] && params[:price] != ""
             flash[:message] = "Post Created!"  
-            @sale_entry = SaleEntry.create(item: params[:item], description: params[:description], price: params[:price], user_id: current_user.id)
+            @sale_entry = current_user.sale_entries.create(params)
             redirect "/sale_entries/#{@sale_entry.id}"
         else
             flash[:error] = "Oops! Please fill out all fields to submit the sale."
@@ -35,12 +35,13 @@ class SaleEntriesController < ApplicationController
 
     get '/sale_entries/:id/edit' do
         set_sale_entry
-        if @sale_entry
-            erb :'/sale_entries/show'
-        else
-            flash[:error] = "Oops! This doesn't exist."
-            redirect to "/users/#{current_user.id}"
-        end
+        # if @sale_entry
+        #     erb :'/sale_entries/show'
+        #     redirect to "/sale_entries/#{params[:id]}"
+        # else
+        #     flash[:error] = "Oops! This doesn't exist."
+        #     redirect to "/users/#{current_user.id}"
+        # end
         redirect_if_not_logged_in
         if allowed_to_edit?(@sale_entry)
             erb :'/sale_entries/edit'
